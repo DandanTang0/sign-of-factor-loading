@@ -1,0 +1,15 @@
+TITLE:     this is an example of a CFA with categorical factor indicators
+
+DATA:      FILE IS CDI1.csv;
+
+VARIABLE:  NAMES ARE T11-T19 T110-T119 T120-T127 
+                     T21-T29 T210-T219 T220-T227;
+           CATEGORICAL ARE T11-T19 T110-T119 T120-T127;
+           USEVARIABLES ARE T11-T19 T110-T119 T120-T127;
+                     
+ANALYSIS: ESTIMATOR = WLSMV; 
+
+MODEL:    
+           f1 BY T11@1 T12-T127*1;     
+           
+OUTPUT:    TECH1 TECH4;
